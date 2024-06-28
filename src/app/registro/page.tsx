@@ -1,72 +1,82 @@
 'use client'
-import { Eye, EyeOff } from "lucide-react";
+import { useState } from "react";
+import { ModeToggle } from '../components/toggle';
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import { ModeToggle } from './components/toggle';
-import { useRouter } from 'next/navigation';
-import './globals.css'
+
 type User = {
   email: string;
   password: string;
   rememberMe: boolean;
 };
-document.addEventListener('DOMContentLoaded', function() {
-  const passwordInputs = document.querySelectorAll('input[type="password"]');
-  passwordInputs.forEach(input => {
-    input.setAttribute('autocomplete', 'new-password');
-    input.addEventListener('focus', () => {
-      input.removeAttribute('type');
-      input.setAttribute('type', 'password');
-    });
-  });
-});
 
-function Home() {
-  const router = useRouter();
+type UserAdmin = {
+  email: string;
+  password: string;
+  rememberMe: boolean;
+  isAdmin: boolean;
+};
+
+function Register() {
   const [error, setError] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [rememberMe, setRememberMe] = useState(true);
-
-  useEffect(() => {
-    const registeredEmail = localStorage.getItem('registeredEmail');
-    if (registeredEmail) {
-      setEmail(registeredEmail);
-      localStorage.removeItem('registeredEmail');
-    }
-  }, []);
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const allowedCredentials: User[] = JSON.parse(localStorage.getItem('allowedCredentials') || '[]');
+    const storedCredentials: User[] = JSON.parse(localStorage.getItem('allowedCredentials') || '[]');
+    const storedCredentialsAdmin: UserAdmin[] = JSON.parse(localStorage.getItem('allowedCredentialsAdmin') || '[]');
 
-    const found = allowedCredentials.some(
-      cred => cred.email === email && cred.password === password
-    );
+    const emailExists = storedCredentials.some(cred => cred.email === email);
+    const emailExistsAdmin = storedCredentialsAdmin.some(cred => cred.email === email);
 
-    if (found) {
-      router.push('/inicio');
-    } else {
-      setError("Falha no login: Credenciais inválidas");
+    if (emailExists) {
+      setError("Email já cadastrado.");
+      return;
     }
+
+    if (!emailExistsAdmin && email !== "stefany@bne.empregos.com") {
+      setError("Você não tem permissão para acessar as funcionalidades de admin.");
+      return;
+    }
+
+    const newUser: User = {
+      email,
+      password: "senha123",
+      rememberMe: true,
+    };
+
+    const newAdminUser: UserAdmin = {
+      email: "stefany@bne.empregos.com",
+      password: "senha123",
+      rememberMe: true,
+      isAdmin: true
+    };
+
+    const updatedCredentials = [...storedCredentials, newUser];
+    const updatedCredentialsAdmin = [...storedCredentialsAdmin, newAdminUser];
+
+    localStorage.setItem('allowedCredentials', JSON.stringify(updatedCredentials));
+    localStorage.setItem('allowedCredentialsAdmin', JSON.stringify(updatedCredentialsAdmin));
+
+    console.log('Novo usuário registrado:', newUser);
+    console.log('Lista de usuários atualizada:', updatedCredentials);
+    console.log('Lista de administradores atualizada:', updatedCredentialsAdmin);
+
+    localStorage.setItem('registeredEmail', email);
+
+    window.location.href = 'http://localhost:3000';
   };
 
   return (
     <div className="">
       <div className="flex flex-row justify-end">
         <div className="flex items-center mr-48">
-          <Image
+        <Image
           src="/imgs/logo-form.png" 
           alt="Logo" 
           width={90} 
           height={180} 
-          className="ml-12 mt-8"
+          className="ml-16 mt-8"
         />
           <span className="text-3xl font-semibold whitespace-nowrap dark:text-white mt-8 ml-2">
             <h1>FormsDevHelp</h1>
@@ -115,8 +125,8 @@ function Home() {
         <div className="mt-24 mr-36 " id="modal-login">
           <div className="">
             <div className="mx-auto text-center">
-              <h1 className="text-2xl font-bold sm:text-3xl dark:text-white">Login</h1>
-              <p className="mt-4 text-gray-600 dark:text-slate-400">Acesse sua conta</p>
+              <h1 className="text-2xl font-bold sm:text-3xl dark:text-white">Registre-se</h1>
+              <p className="mt-4 text-gray-600 dark:text-slate-400">Crie uma nova conta!</p>
             </div>
             <form className="mx-auto mb-0 mt-8 max-w-md space-y-4" onSubmit={handleSubmit}>
               <div>
@@ -140,34 +150,8 @@ function Home() {
                 </div>
               </div>
 
-              <div className="relative">
-              <label className="text-blue-500 font-semibold text-sm m-2">Senha</label>
-                <input
-                  name="password"
-                  placeholder="Senha"
-                  className="rounded-lg border-gray-300 p-4 pe-12 text-sm shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent dark:text-white dark:bg-gray-800 w-full"
-                  type={showPassword ? "text" : "password"}
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  autoComplete="new-password"
-                />
-                <span className="absolute inset-y-0 end-0 grid place-content-center px-4">
-                  <button
-                    type="button"
-                    className="text-gray-500 mt-6 hover:text-gray-700 dark:text-white dark:hover:text-gray-300"
-                    onClick={togglePasswordVisibility}
-                  >
-                    {showPassword ? <EyeOff /> : <Eye />}
-                  </button>
-                </span>
-
-              </div>
-
               <div className="flex items-center justify-between">
-                <label className="flex items-center">
-                  <span className="ml-2 text-sm text-black dark:text-white"><a href="/registro">Não tem conta?</a></span>
-                </label>
-                <button className="inline-block rounded-lg bg-blue-500 ml-4 px-24 py-3 text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" type="submit">Login</button>
+                <button className="inline-block rounded-lg bg-blue-500 ml-4 px-24 py-3 text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50" type="submit">Registrar</button>
               </div>
             </form>
           </div>
@@ -177,4 +161,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Register;
