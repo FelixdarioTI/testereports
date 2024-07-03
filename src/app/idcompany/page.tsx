@@ -1,5 +1,5 @@
 'use client';
-import Image from 'next/image';
+import Logo from '../imgs/logo-form.png'
 import React, { useEffect, useState } from 'react';
 import cardsData from '../cardsData'
 
@@ -241,12 +241,7 @@ const Card: React.FC<CardProps> = ({ title, CNPJ, RazaoSocial, onDelete, company
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
     <div className="flex items-center space-x-3 rtl:space-x-reverse">
       <a href="#">
-      <Image
-          src="/imgs/logo-form.png" 
-          alt="Logo" 
-          width={32} 
-          height={26} 
-        />
+      <img src={Logo.src} className="h-8" alt="Logo" />
       </a>
       <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">FormsDevHelp</span>
     </div>

@@ -6,11 +6,8 @@ import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import dynamic from "next/dynamic";
 import { useTheme } from "next-themes";
-import Image from 'next/image';
-const MonacoEditor = dynamic(() => import("@monaco-editor/react"), {
-  ssr: false, 
-});
-
+import Logo from '../imgs/logo-form.png';
+const MonacoEditor = dynamic(() => import('@monaco-editor/react'), { ssr: false });
 function gerarGuid() {
    return 'xxxxxxxx-xxxx-xxxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
        var r = Math.random() * 16 | 0,
@@ -817,13 +814,7 @@ const [editorWidth, setEditorWidth] = useState<string>('1070px');
       >
         <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
           <a href="#" className="flex items-center ps-2.5 mb-5">
-          <Image
-          src="/imgs/logo-form.png" 
-          alt="Logo" 
-          width={32} 
-          height={26} 
-          className="h-6 me-3 sm:h-7" 
-        />
+          <img src={Logo.src} className="h-6 me-3 sm:h-7" alt="Logo" />
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
               FormsDevHelp
             </span>
@@ -1145,13 +1136,13 @@ const [editorWidth, setEditorWidth] = useState<string>('1070px');
     </button>
   </div>
   <div className="flex items-end w-9/12 mx-auto ml-80">
-    <div className="w-11/12 bg-white p-1 rounded shadow-md dark:bg-gray-800 dark:text-white">
+    <div className=" bg-white p-1 rounded shadow-md dark:bg-gray-800 dark:text-white">
     <div className="grid gap-1 mb-1">
   <label className="flex items-center ml-2 relative w-full">
     <span>GUIDs Gerados:</span>
     <div className="relative w-3/4 ml-2">
       <textarea id="guidsText" className="border border-blue-600 rounded-md h-8 p-1 pr-8 overflow-hidden resize-none dark:bg-gray-700 dark:border-blue-400 dark:text-white" style={{ width: '400px' }}></textarea>
-      <button className="absolute top-2 right-4 flex items-center group" onClick={copiarTexto}>
+      <button className="absolute top-2 flex items-center group" onClick={copiarTexto} style={{ marginLeft: '375px' }}>
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="flex items-end justify-end">
           <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
           <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />

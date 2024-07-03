@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react";
 import { ModeToggle } from '../components/toggle';
-import Image from "next/image";
+import Logo from "../imgs/logo-form.png"
 
 type User = {
   email: string;
@@ -71,13 +71,7 @@ function Register() {
     <div className="">
       <div className="flex flex-row justify-end">
         <div className="flex items-center mr-48">
-        <Image
-          src="/imgs/logo-form.png" 
-          alt="Logo" 
-          width={90} 
-          height={180} 
-          className="ml-16 mt-8"
-        />
+        <img src={Logo.src} width={90} className="ml-16 mt-8" alt="logo" />
           <span className="text-3xl font-semibold whitespace-nowrap dark:text-white mt-8 ml-2">
             <h1>FormsDevHelp</h1>
           </span>

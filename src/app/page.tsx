@@ -1,6 +1,6 @@
 'use client'
 import { Eye, EyeOff } from "lucide-react";
-import Image from "next/image";
+import Logo from './imgs/logo-form.png'
 import { useState, useEffect } from "react";
 import { ModeToggle } from './components/toggle';
 import { useRouter } from 'next/navigation';
@@ -10,16 +10,8 @@ type User = {
   password: string;
   rememberMe: boolean;
 };
-document.addEventListener('DOMContentLoaded', function() {
-  const passwordInputs = document.querySelectorAll('input[type="password"]');
-  passwordInputs.forEach(input => {
-    input.setAttribute('autocomplete', 'new-password');
-    input.addEventListener('focus', () => {
-      input.removeAttribute('type');
-      input.setAttribute('type', 'password');
-    });
-  });
-});
+
+
 
 function Home() {
   const router = useRouter();
@@ -27,8 +19,18 @@ function Home() {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [rememberMe, setRememberMe] = useState(true);
-
+  useEffect(() => {
+    document.addEventListener('DOMContentLoaded', function() {
+      const passwordInputs = document.querySelectorAll('input[type="password"]');
+      passwordInputs.forEach(input => {
+        input.setAttribute('autocomplete', 'new-password');
+        input.addEventListener('focus', () => {
+          input.removeAttribute('type');
+          input.setAttribute('type', 'password');
+        });
+      });
+    });
+  },[])
   useEffect(() => {
     const registeredEmail = localStorage.getItem('registeredEmail');
     if (registeredEmail) {
@@ -61,20 +63,14 @@ function Home() {
     <div className="">
       <div className="flex flex-row justify-end">
         <div className="flex items-center mr-48">
-          <Image
-          src="/imgs/logo-form.png" 
-          alt="Logo" 
-          width={90} 
-          height={180} 
-          className="ml-12 mt-8"
-        />
+        <img src={Logo.src} width={90} className="ml-12 mt-8" alt="logo" />
           <span className="text-3xl font-semibold whitespace-nowrap dark:text-white mt-8 ml-2">
             <h1>FormsDevHelp</h1>
           </span>
         </div>
 
         <div className="pr-8 pt-8"> 
-          <ModeToggle />
+          <ModeToggle/>
         </div>
       </div>
       <main className="font-mono flex flex-row justify-around" id="modal-body"> 
