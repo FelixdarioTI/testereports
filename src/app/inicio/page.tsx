@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
 import { ModeToggle } from '../components/toggle';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
@@ -203,7 +203,91 @@ function copyShareWithDependentListFieldstep() {
     selection.removeAllRanges();
   }
 }
+function copyRegex() {
+  const text = document.getElementById('Regex') as HTMLElement;
+  const range = document.createRange();
+  range.selectNode(text);
+  const selection = window.getSelection();
+  if (selection) {
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+  }
+}
+function copyBoolean() {
+  const text = document.getElementById('Boolean') as HTMLElement;
+  const range = document.createRange();
+  range.selectNode(text);
+  const selection = window.getSelection();
+  if (selection) {
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+  }
+}
+function copyData() {
+  const text = document.getElementById('Data') as HTMLElement;
+  const range = document.createRange();
+  range.selectNode(text);
+  const selection = window.getSelection();
+  if (selection) {
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+  }
+}
+function copyContratação() {
+  const text = document.getElementById('Contratação') as HTMLElement;
+  const range = document.createRange();
+  range.selectNode(text);
+  const selection = window.getSelection();
+  if (selection) {
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+  }
+}
 
+function copyMapping() {
+  const text = document.getElementById('Mapping') as HTMLElement;
+  const range = document.createRange();
+  range.selectNode(text);
+  const selection = window.getSelection();
+  if (selection) {
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+  }
+}
+function copyDefaultMapping() {
+  const text = document.getElementById('DefaultMapping') as HTMLElement;
+  const range = document.createRange();
+  range.selectNode(text);
+  const selection = window.getSelection();
+  if (selection) {
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+  }
+}
+function copyDictionary() {
+  const text = document.getElementById('Dictionary') as HTMLElement;
+  const range = document.createRange();
+  range.selectNode(text);
+  const selection = window.getSelection();
+  if (selection) {
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+  }
+}
 function CopyGlobal() {
   const text = document.getElementById('CopyGlobal') as HTMLElement;
   
@@ -223,7 +307,25 @@ function CopyGlobal() {
 
   text.style.display = originalDisplay;
 }
+function CopyGlobalField() {
+  const text = document.getElementById('CopyPayloadGlobal') as HTMLElement;
+  
+  const originalDisplay = text.style.display;
+  text.style.display = 'block'; 
 
+  const range = document.createRange();
+  range.selectNode(text);
+  const selection = window.getSelection();
+  
+  if (selection) {
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand('copy');
+    selection.removeAllRanges();
+  }
+
+  text.style.display = originalDisplay;
+}
 
 
 export default function Home() {
@@ -231,6 +333,8 @@ export default function Home() {
   const [dropdownNavbarOpen2, setDropdownNavbarOpen2] = useState(false);
   const [dropdownNavbarOpen3, setDropdownNavbarOpen3] = useState(false);
   const [dropdownNavbarOpen4, setDropdownNavbarOpen4] = useState(false);
+  const [dropdownNavbarOpen5, setDropdownNavbarOpen5] = useState(false);
+  const [dropdownNavbarOpen6, setDropdownNavbarOpen6] = useState(false);
   const [OpencontHTML, setOpencontHTML] = useState(true);
   const [OpencontJSON, setOpencontJSON] = useState(false);
   const [isModalOpen1, setisModalOpen1] = useState(false);
@@ -261,11 +365,28 @@ export default function Home() {
   const ModalOpen13 = () => setisModalOpen13(!isModalOpen13);
   const [isModalOpen14, setisModalOpen14] = useState(false);
   const ModalOpen14 = () => setisModalOpen14(!isModalOpen14);
-
+  const [isModalOpen15, setisModalOpen15] = useState(false);
+  const ModalOpen15 = () => setisModalOpen15(!isModalOpen15);
+  const [isModalOpen16, setisModalOpen16] = useState(false);
+  const ModalOpen16 = () => setisModalOpen16(!isModalOpen16);
+  const [isModalOpen17, setisModalOpen17] = useState(false);
+  const ModalOpen17 = () => setisModalOpen17(!isModalOpen17);
+  const [isModalOpen18, setisModalOpen18] = useState(false);
+  const ModalOpen18 = () => setisModalOpen18(!isModalOpen18);
+  const [isModalOpen19, setisModalOpen19] = useState(false);
+  const ModalOpen19 = () => setisModalOpen19(!isModalOpen19);
+  const [isModalOpen20, setisModalOpen20] = useState(false);
+  const ModalOpen20 = () => setisModalOpen20(!isModalOpen20);
+  const [isModalOpen21, setisModalOpen21] = useState(false);
+  const ModalOpen21 = () => setisModalOpen21(!isModalOpen21);
+  const [isModalOpen22, setisModalOpen22] = useState(false);
+  const ModalOpen22 = () => setisModalOpen22(!isModalOpen22);
   const toggleDropdown1 = () => setDropdownNavbarOpen1(!dropdownNavbarOpen1);
   const toggleDropdown2 = () => setDropdownNavbarOpen2(!dropdownNavbarOpen2);
   const toggleDropdown3 = () => setDropdownNavbarOpen3(!dropdownNavbarOpen3);
   const toggleDropdown4 = () => setDropdownNavbarOpen4(!dropdownNavbarOpen4);
+  const toggleDropdown5 = () => setDropdownNavbarOpen5(!dropdownNavbarOpen5);
+  const toggleDropdown6 = () => setDropdownNavbarOpen6(!dropdownNavbarOpen6);
   const [dropdownOpen1, setDropdownOpen1] = useState(false);
   const [dropdownOpen2, setDropdownOpen2] = useState(false);
   const labelDropdown1 = () => setDropdownOpen1(!dropdownOpen1);
@@ -356,6 +477,209 @@ const toggleinput5 = () => {
   setinput3(false);
   setinput4(false);
   setinput5(true);
+};
+const [selectedContent, setSelectedContent] = useState('Variavel');
+
+const jsonData = {
+  Variavel: {
+    $type: "LugaRh.Domain.Models.Shares.Export.Fields.DependentFilterMappingField, LugaRh.Domain.Models",
+    SrcName: "dependentsNames",
+    DstName: "name",
+    Source: "form",
+    FormatType: 0,
+    ValuesFromTo: {
+      $type: "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    },
+    Size: 0,
+    CharSize: null,
+    Position: 0,
+    AppConfiguration: null,
+    DefaultValue: "",
+  },
+  Nome: {
+    $type: "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+    SrcName: "Data.name",
+    DstName: "dep_nome",
+    Source: "dependent",
+    FormatType: 0,
+    ValuesFromTo: {
+      $type: "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    },
+    Size: 0,
+    CharSize: null,
+    Position: 0,
+    AppConfiguration: null,
+    DefaultValue: "",
+  },
+  Dtanasc: {
+    $type: "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+    SrcName: "Data.birthdate",
+    DstName: "dep_datanasc",
+    Source: "dependent",
+    FormatType: 1,
+    ValuesFromTo: {
+      $type: "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    },
+    Size: 0,
+    CharSize: null,
+    Position: 0,
+    AppConfiguration: null,
+    DefaultValue: "",
+  },
+  Cpf: {
+    $type: "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+    SrcName: "Data.cpf",
+    DstName: "dep_cpf",
+    Source: "dependent",
+    FormatType: 0,
+    ValuesFromTo: {
+      $type: "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    },
+    Size: 0,
+    CharSize: null,
+    Position: 0,
+    AppConfiguration: null,
+    DefaultValue: "",
+  },
+  Cns: {
+    $type: "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+    SrcName: "Data.cns",
+    DstName: "dep_cns",
+    Source: "dependent",
+    FormatType: 0,
+    ValuesFromTo: {
+      $type: "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    },
+    Size: 0,
+    CharSize: null,
+    Position: 0,
+    AppConfiguration: null,
+    DefaultValue: "",
+  },
+  Sexo: {
+    $type: "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+    SrcName: "Data.sex",
+    DstName: "dep_sexo",
+    Source: "dependent",
+    FormatType: 0,
+    ValuesFromTo: {
+      $type: "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    },
+    Size: 0,
+    CharSize: null,
+    Position: 0,
+    AppConfiguration: null,
+    DefaultValue: "",
+  },
+  Parentesco: {
+    $type: "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+    SrcName: "Data.relationship",
+    DstName: "dep_parentesco",
+    Source: "dependent",
+    FormatType: 0,
+    ValuesFromTo: {
+      $type: "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    },
+    Size: 0,
+    CharSize: null,
+    Position: 0,
+    AppConfiguration: null,
+    DefaultValue: "",
+  },
+  Estcivil: {
+    $type: "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+    SrcName: "Data.maritalstatus",
+    DstName: "dep_estcivil",
+    Source: "dependent",
+    FormatType: 0,
+    ValuesFromTo: {
+      $type: "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    },
+    Size: 0,
+    CharSize: null,
+    Position: 0,
+    AppConfiguration: null,
+    DefaultValue: "",
+  },
+  NomeMae: {
+    $type: "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+    SrcName: "Data.mothername",
+    DstName: "dep_nomemae",
+    Source: "dependent",
+    FormatType: 0,
+    ValuesFromTo: {
+      $type: "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    },
+    Size: 0,
+    CharSize: null,
+    Position: 0,
+    AppConfiguration: null,
+    DefaultValue: "",
+  },
+  Rg: {
+    $type: "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+    SrcName: "Data.rg",
+    DstName: "dep_rg",
+    Source: "dependent",
+    FormatType: 0,
+    ValuesFromTo: {
+      $type: "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    },
+    Size: 0,
+    CharSize: null,
+    Position: 0,
+    AppConfiguration: null,
+    DefaultValue: "",
+  },
+  RgOrg: {
+    $type: "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+    SrcName: "Data.rgOrg",
+    DstName: "dep_rgo",
+    Source: "dependent",
+    FormatType: 0,
+    ValuesFromTo: {
+      $type: "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    },
+    Size: 0,
+    CharSize: null,
+    Position: 0,
+    AppConfiguration: null,
+    DefaultValue: "",
+  },
+  Dtemis: {
+    $type: "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+    SrcName: "Data.rgEmDate",
+    DstName: "dep_dtemis",
+    Source: "dependent",
+    FormatType: 0,
+    ValuesFromTo: {
+      $type: "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    },
+    Size: 0,
+    CharSize: null,
+    Position: 0,
+    AppConfiguration: null,
+    DefaultValue: "",
+  },
+};
+
+const handleItemClick = (contentId: SetStateAction<string>) => {
+  setSelectedContent(contentId);
+};
+
+const copyDependentes = () => {
+  const textElement = document.getElementById(selectedContent);
+  if (textElement) {
+    const range = document.createRange();
+    range.selectNode(textElement);
+    const selection = window.getSelection();
+    if (selection) {
+      selection.removeAllRanges();
+      selection.addRange(range);
+      document.execCommand('copy');
+      selection.removeAllRanges();
+    }
+  }
 };
   const toggleOpenContHTML = () => {
    setOpencontHTML(true);
@@ -1083,6 +1407,117 @@ const [editorWidth, setEditorWidth] = useState<string>('1070px');
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
                       GlobalField
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            )}
+            <li>
+              <a
+                href="#"
+                onClick={toggleDropdown5}
+                className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+              >
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"><path d="M9 9a3 3 0 1 1 6 0"/><path d="M12 12v3"/><path d="M11 15h2"/><path d="M19 9a7 7 0 1 0-13.6 2.3C6.4 14.4 8 19 8 19h8s1.6-4.6 2.6-7.7c.3-.8.4-1.5.4-2.3"/><path d="M12 19v3"/></svg>
+               <span className="flex-1 ms-3 whitespace-nowrap">PayloadField</span>
+                <span className="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium">
+                  <svg
+                    className="w-2.5 h-2.5 ms-3"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 10 6"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 1 4 4 4-4"
+                    />
+                  </svg>
+                </span>
+              </a>
+            </li>
+            {dropdownNavbarOpen5 && (
+              <div
+                id="dropdownNavbar4"
+                className="z-10 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow  dark:bg-gray-700 dark:divide-gray-600"
+              >
+                <ul
+                  className="py-2 text-sm text-gray-700 dark:text-gray-400"
+                  aria-labelledby="dropdownLargeButton"
+                >
+                  <li onClick={ModalOpen15}>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      RegexReplaceMappingField
+                    </a>
+                  </li>
+                  <li onClick={ModalOpen16}>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      BooleanToString
+                    </a>
+                  </li>
+                  <li  onClick={ModalOpen17}>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      Variável de Data Local sem Horário
+                    </a>
+                  </li>
+                  <li onClick={ModalOpen18}>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      Dados de Contratação
+                    </a>
+                  </li>
+                  <li onClick={ModalOpen19}>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      Variável p/ Dependentes
+                    </a>
+                  </li>
+                  <li onClick={ModalOpen20}>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      DictionaryField
+                    </a>
+                  </li>
+                  <li onClick={ModalOpen21}>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      SelectMappingField
+                    </a>
+                  </li>
+                  <li onClick={ModalOpen22}>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      DefaultMappingField
+                    </a>
+                  </li>
+                  <li onClick={CopyGlobalField}>
+                    <a
+                      href="#"
+                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                    >
+                      GlobalPayloadField
                     </a>
                   </li>
                 </ul>
@@ -5083,7 +5518,3205 @@ const [editorWidth, setEditorWidth] = useState<string>('1070px');
        2
      )}
   </pre>
+  {isModalOpen15 && (
+  <div tabIndex={-1} aria-hidden="true" className="fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-black bg-opacity-50">
+    <div className="relative p-2 w-full max-w-fit h-full md:h-auto">
+      <div className="relative p-2 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-4">
+        <div className="flex justify-between items-center mb-4 text-center ml-36">
+          <div className="text-center">
+            <h1 className="text-lg text-black dark:text-white">RegexReplaceMappingField</h1>
+            <p className="text-gray-500 dark:text-gray-300 max-w-4xl">Estrutura utilizada para campos que necessitam de um retorno automático com base na variável.</p>
+          </div>
+          
+          <div className="flex items-center">
+            <button className="relative flex items-center group" onClick={copyRegex}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex items-end justify-end">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+              </svg>
+              <span className="absolute hidden -top-14 left-[50%] -translate-x-1/2 z-20 origin-left px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:block dark:bg-gray-700 dark:text-white dark:border-gray-600">
+                Copiar
+              </span>
+            </button>
+            <button
+              type="button"
+              className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-2 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              onClick={() => setisModalOpen15(false)}
+            >
+              <svg
+                aria-hidden="true"
+                className="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div>
+          <pre id='Regex' className="text-xs">
+            {JSON.stringify(
+              {
+                "$type": "LugaRh.Domain.Models.Shares.Export.Fields.RegexReplaceMappingField, LugaRh.Domain.Models",
+                "SrcName": "caminhoReferente",
+                "DstName": "variavel",
+                "Source": "form",
+                "FormatType": 0,
+                "ValuesFromTo": {
+                   "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+                },
+                "Size": 0,
+                "CharSize": null,
+                "Position": 0,
+                "AppConfiguration": null,
+                "DefaultValue": "",
+                "RegexValue": "^",
+                "Replace": "R$ "
+              },
+              null,
+              2
+            )}
+          </pre>
+        </div>
       </div>
+    </div>
+  </div>
+)}
+{isModalOpen16 && (
+  <div tabIndex={-1} aria-hidden="true" className="fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-black bg-opacity-50">
+    <div className="relative p-2 w-full max-w-fit h-full md:h-auto">
+      <div className="relative p-2 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-4">
+        <div className="flex justify-between items-center mb-4 text-center ml-12">
+          <div className="text-center">
+            <h1 className="text-lg text-black dark:text-white">BooleanToString</h1>
+            <p className="text-gray-500 dark:text-gray-300 max-w-4xl">Variável local utilizada na base de “Verdadeiro” ou “Falso”, caso a seleção da função seja verdadeira ele retorna a resposta marcada.</p>
+          </div>
+          
+          <div className="flex items-center">
+            <button className="relative flex items-center group" onClick={copyBoolean}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex items-end justify-end">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+              </svg>
+              <span className="absolute hidden -top-14 left-[50%] -translate-x-1/2 z-20 origin-left px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:block dark:bg-gray-700 dark:text-white dark:border-gray-600">
+                Copiar
+              </span>
+            </button>
+            <button
+              type="button"
+              className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-2 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              onClick={() => setisModalOpen16(false)}
+            >
+              <svg
+                aria-hidden="true"
+                className="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div>
+          <pre id='Boolean' className="text-xs">
+            {JSON.stringify(
+              {
+                "$type": "LugaRh.Domain.Models.Shares.Export.Fields.BooleanToStringMappingField, LugaRh.Domain.Models",
+                "SrcName": "campoReferencia",
+                "DstName": "campoRetorno",
+                "AffirmativeValue": "X",
+                "NegativeValue": " ",
+                "Source": "form",
+                "FormatType": 0,
+                "ValuesFromTo": {
+                  "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+                },
+                "Size": 0,
+                "CharSize": null,
+                "Position": 0,
+                "AppConfiguration": null,
+                "DefaultValue": ""
+            },
+              null,
+              2
+            )}
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+{isModalOpen17 && (
+  <div tabIndex={-1} aria-hidden="true" className="fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-black bg-opacity-50">
+    <div className="relative p-2 w-full max-w-fit h-full md:h-auto">
+      <div className="relative p-2 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-4">
+        <div className="flex justify-between items-center mb-4 text-center ml-36">
+          <div className="text-center">
+            <h1 className="text-lg text-black dark:text-white">Variável de Data Local sem Horário</h1>
+            <p className="text-gray-500 dark:text-gray-300 max-w-4xl">Variável utilizada para retornar uma data descrita pelo usuário sem o horário junto.</p>
+          </div>
+          
+          <div className="flex items-center">
+            <button className="relative flex items-center group" onClick={copyData}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex items-end justify-end">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+              </svg>
+              <span className="absolute hidden -top-14 left-[50%] -translate-x-1/2 z-20 origin-left px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:block dark:bg-gray-700 dark:text-white dark:border-gray-600">
+                Copiar
+              </span>
+            </button>
+            <button
+              type="button"
+              className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-2 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              onClick={() => setisModalOpen17(false)}
+            >
+              <svg
+                aria-hidden="true"
+                className="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div>
+          <pre id='Data' className="text-xs">
+            {JSON.stringify(
+              {
+                "$type": "LugaRh.Domain.Models.Shares.Export.Fields.BrazilianDateExportMappingField, LugaRh.Domain.Models",
+                "SrcName": "Data.birthdate",
+                "DstName": "share_data_nasc",
+                "Source": "form",
+                "FormatType": 3,
+                "ValuesFromTo": {
+                  "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+                },
+                "Size": 0,
+                "Position": 0,
+                "AppConfiguration": null,
+                "DefaultValue": ""
+              },
+              null,
+              2
+            )}
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+{isModalOpen18 && (
+  <div tabIndex={-1} aria-hidden="true" className="fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-black bg-opacity-50">
+    <div className="relative p-2 w-full max-w-fit h-full md:h-auto">
+      <div className="relative p-2 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-4">
+        <div className="flex justify-between items-center mb-4 text-center ml-64">
+          <div className="text-center">
+            <h1 className="text-lg text-black dark:text-white">Dados de Contratação</h1>
+            <p className="text-gray-500 dark:text-gray-300 max-w-4xl">Estrutura básica para puxar um dado de contratação do Share</p>
+          </div>
+          
+          <div className="flex items-center">
+            <button className="relative flex items-center group" onClick={copyContratação}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex items-end justify-end">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+              </svg>
+              <span className="absolute hidden -top-14 left-[50%] -translate-x-1/2 z-20 origin-left px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:block dark:bg-gray-700 dark:text-white dark:border-gray-600">
+                Copiar
+              </span>
+            </button>
+            <button
+              type="button"
+              className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-2 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              onClick={() => setisModalOpen18(false)}
+            >
+              <svg
+                aria-hidden="true"
+                className="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div>
+          <pre id='Contratação' className="text-xs">
+            {JSON.stringify(
+              {
+                "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+                "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.departamento",
+                "DstName": "share_departamento",
+                "Source": "share",
+                "FormatType": 0,
+                "ValuesFromTo": {
+                   "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+                },
+                "Size": 0,
+                "CharSize": null,
+                "Position": 0,
+                "AppConfiguration": null,
+                "DefaultValue": ""
+             },
+              null,
+              2
+            )}
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+{isModalOpen19 && (
+  <div
+    tabIndex={-1}
+    aria-hidden="true"
+    className="fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-black bg-opacity-50"
+  >
+    <div className="relative p-2 w-full max-w-fit h-full md:h-auto">
+      <div className="relative p-2 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-4">
+        <div className="flex justify-between items-center mb-4 text-center ml-52">
+          <div className="text-center">
+            <h1 className="text-lg text-black dark:text-white">Variável p/ Dependentes</h1>
+            <p className="text-gray-500 dark:text-gray-300 max-w-4xl">
+              Essas estruturas devem ser adicionadas ao campo de PayloadFieldGroups
+            </p>
+          </div>
+
+          <div className="flex items-center relative">
+            <div className="flex space-x-2">
+              <button
+                id="dropdownDelayButton"
+                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mr-4"
+                type="button"
+                onClick={toggleDropdown6}
+              >
+                Escolha o tipo
+                <svg
+                  className="w-2.5 h-2.5 ms-3"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
+              <button className="relative flex items-center group" onClick={copyDependentes}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="flex items-end justify-end"
+                >
+                  <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                  <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                </svg>
+                <span className="absolute hidden -top-14 left-[50%] -translate-x-1/2 z-20 origin-left px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:block dark:bg-gray-700 dark:text-white dark:border-gray-600">
+                  Copiar
+                </span>
+              </button>
+              <button
+                type="button"
+                className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                onClick={() => setisModalOpen19(false)}
+              >
+                <svg
+                  aria-hidden="true"
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            {dropdownNavbarOpen6 && (
+              <div
+                id="dropdownDelay"
+                className="absolute z-50 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 mt-2"
+                style={{ top: '100%', left: 0 }}
+              >
+                <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+                <button onClick={() => handleItemClick('Variavel')} className=" px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Variavel</button>
+                <button onClick={() => handleItemClick('Nome')} className=" px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Nome</button>
+                <button onClick={() => handleItemClick('Dtanasc')} className=" px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Data de Nascimento</button>
+                <button onClick={() => handleItemClick('Cpf')} className=" px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Cpf</button>
+                <button onClick={() => handleItemClick('Cns')} className=" px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Cns</button>
+                <button onClick={() => handleItemClick('Sexo')} className=" px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sexo</button>
+                <button onClick={() => handleItemClick('Parentesco')} className=" px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Parentesco</button>
+                <button onClick={() => handleItemClick('Estcivil')} className=" px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Estado civil</button>
+                <button onClick={() => handleItemClick('NomeMae')} className=" px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Nome da Mãe</button>
+                <button onClick={() => handleItemClick('Rg')} className=" px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Rg</button>
+                <button onClick={() => handleItemClick('RgOrg')} className=" px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Rg Órgão</button>
+                <button onClick={() => handleItemClick('Dtemis')} className=" px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Data de Emissão do RG</button>
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+        <div>
+        <pre id="Variavel" className={`text-xs ${selectedContent === 'Variavel' ? '' : 'hidden'}`}>
+          {JSON.stringify(jsonData.Variavel, null, 2)}
+        </pre>
+        <pre id="Nome" className={`text-xs ${selectedContent === 'Nome' ? '' : 'hidden'}`}>
+          {JSON.stringify(jsonData.Nome, null, 2)}
+        </pre>
+        <pre id="Dtanasc" className={`text-xs ${selectedContent === 'Dtanasc' ? '' : 'hidden'}`}>
+          {JSON.stringify(jsonData.Dtanasc, null, 2)}
+        </pre>
+        <pre id="Cpf" className={`text-xs ${selectedContent === 'Cpf' ? '' : 'hidden'}`}>
+          {JSON.stringify(jsonData.Cpf, null, 2)}
+        </pre>
+        <pre id="Cns" className={`text-xs ${selectedContent === 'Cns' ? '' : 'hidden'}`}>
+          {JSON.stringify(jsonData.Cns, null, 2)}
+        </pre>
+        <pre id="Sexo" className={`text-xs ${selectedContent === 'Sexo' ? '' : 'hidden'}`}>
+          {JSON.stringify(jsonData.Sexo, null, 2)}
+        </pre>
+        <pre id="Parentesco" className={`text-xs ${selectedContent === 'Parentesco' ? '' : 'hidden'}`}>
+          {JSON.stringify(jsonData.Parentesco, null, 2)}
+        </pre>
+        <pre id="Estcivil" className={`text-xs ${selectedContent === 'Estcivil' ? '' : 'hidden'}`}>
+          {JSON.stringify(jsonData.Estcivil, null, 2)}
+        </pre>
+        <pre id="NomeMae" className={`text-xs ${selectedContent === 'NomeMae' ? '' : 'hidden'}`}>
+          {JSON.stringify(jsonData.NomeMae, null, 2)}
+        </pre>
+        <pre id="Rg" className={`text-xs ${selectedContent === 'Rg' ? '' : 'hidden'}`}>
+          {JSON.stringify(jsonData.Rg, null, 2)}
+        </pre>
+        <pre id="RgOrg" className={`text-xs ${selectedContent === 'RgOrg' ? '' : 'hidden'}`}>
+          {JSON.stringify(jsonData.RgOrg, null, 2)}
+        </pre>
+        <pre id="Dtemis" className={`text-xs ${selectedContent === 'Dtemis' ? '' : 'hidden'}`}>
+          {JSON.stringify(jsonData.Dtemis, null, 2)}
+        </pre>
+      </div>
+      </div>
+    </div>
+  </div>
+)}
+
+{isModalOpen20 && (
+  <div tabIndex={-1} aria-hidden="true" className="fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-black bg-opacity-50">
+    <div className="relative p-2 w-full max-w-fit h-full md:h-auto">
+      <div className="relative p-2 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-4">
+        <div className="flex justify-between items-center mb-4 text-center ml-60">
+          <div className="text-center">
+            <h1 className="text-lg text-black dark:text-white">DictionaryField</h1>
+            <p className="text-gray-500 dark:text-gray-300 max-w-4xl">Variável utilizada para retornar um valor ao selecionar vários itens.</p>
+          </div>
+          
+          <div className="flex items-center">
+            <button className="relative flex items-center group" onClick={copyDictionary}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex items-end justify-end">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+              </svg>
+              <span className="absolute hidden -top-14 left-[50%] -translate-x-1/2 z-20 origin-left px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:block dark:bg-gray-700 dark:text-white dark:border-gray-600">
+                Copiar
+              </span>
+            </button>
+            <button
+              type="button"
+              className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-2 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              onClick={() => setisModalOpen20(false)}
+            >
+              <svg
+                aria-hidden="true"
+                className="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div>
+          <pre id='Dictionary' className="text-xs">
+            {JSON.stringify(
+              {
+                "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DictionaryMappingField, LugaRh.Domain.Models",
+                "SrcName": "Documents.afefc626-1308-44b0-9871-7fbdd8aa9d5e.Fields.Banco", 
+                "DstName": "identificacao do banco de pagamento (tabela de bancos)", 
+                "Source": "share",
+                "FormatType": 0,
+                "ValuesFrom": {
+                   "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+                   "$values": []
+                },
+                "ValuesFromTo": {
+                   "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+                   "banco do brasil s.a.": "001"
+                },
+                "Size": 3,
+                "CharSize": 3,
+                "Position": 0,
+                "AppConfiguration": null,
+                "Substitution": "   ",
+                "DefaultValue": "   ",
+                "EnablePadding": true,
+                "PaddingDirection": "R"
+             },
+              null,
+              2
+            )}
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+{isModalOpen21 && (
+  <div tabIndex={-1} aria-hidden="true" className="fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-black bg-opacity-50">
+    <div className="relative p-2 w-full max-w-fit h-full md:h-auto">
+      <div className="relative p-2 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-4">
+        <div className="flex justify-between items-center mb-4 text-center ml-96">
+          <div className="text-center">
+            <h1 className="text-lg text-black dark:text-white">SelectMappingField</h1>
+          </div>
+          
+          <div className="flex items-center">
+            <button className="relative flex items-center group" onClick={copyMapping}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex items-end justify-end">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+              </svg>
+              <span className="absolute hidden -top-14 left-[50%] -translate-x-1/2 z-20 origin-left px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:block dark:bg-gray-700 dark:text-white dark:border-gray-600">
+                Copiar
+              </span>
+            </button>
+            <button
+              type="button"
+              className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-2 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              onClick={() => setisModalOpen21(false)}
+            >
+              <svg
+                aria-hidden="true"
+                className="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div>
+          <pre id='Mapping' className="text-xs">
+            {JSON.stringify(
+              {
+                "$type": "LugaRh.Domain.Models.Shares.Export.Fields.SelectMappingField, LugaRh.Domain.Models",
+                "SrcName": "nomeFuncao",
+                "DstName": "nomeFuncao",
+                "OptionsNames": [
+                   {
+                      "Value1": "01"
+                   },
+                   {
+                      "Value2": "02"
+                   },
+                   {
+                      "Value3": "03"
+                   }
+                ],
+                "Source": "form",
+                "FormatType": 0,
+                "ValuesFromTo": {
+                   "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+                },
+                "Size": 0,
+                "CharSize": null,
+                "Position": 0,
+                "AppConfiguration": null,
+                "DefaultValue": ""
+             },
+              null,
+              2
+            )}
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+{isModalOpen22 && (
+  <div tabIndex={-1} aria-hidden="true" className="fixed top-0 right-0 left-0 z-50 flex justify-center items-center w-full h-full bg-black bg-opacity-50">
+    <div className="relative p-2 w-full max-w-fit h-full md:h-auto">
+      <div className="relative p-2 bg-white rounded-lg shadow dark:bg-gray-800 sm:p-4">
+        <div className="flex justify-between items-center mb-4 text-center ml-96">
+          <div className="text-center">
+            <h1 className="text-lg text-black dark:text-white">DefaultMappingField</h1>
+          </div>
+          
+          <div className="flex items-center">
+            <button className="relative flex items-center group" onClick={copyDefaultMapping}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="flex items-end justify-end">
+                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+              </svg>
+              <span className="absolute hidden -top-14 left-[50%] -translate-x-1/2 z-20 origin-left px-3 rounded-lg border border-gray-300 bg-white py-2 text-sm font-bold shadow-md transition-all duration-300 ease-in-out group-hover:block dark:bg-gray-700 dark:text-white dark:border-gray-600">
+                Copiar
+              </span>
+            </button>
+            <button
+              type="button"
+              className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-2 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+              onClick={() => setisModalOpen22(false)}
+            >
+              <svg
+                aria-hidden="true"
+                className="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div>
+          <pre id='DefaultMapping' className="text-xs">
+            {JSON.stringify(
+              {
+                "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+                "SrcName": "opcao",
+                "DstName": "opcao_sim",
+                "Source": "form",
+                "FormatType": 0,
+                "ValuesFromTo": {
+                   "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+                },
+                "Size": 0,
+                "CharSize": null,
+                "Position": 0,
+                "AppConfiguration": null,
+                "DefaultValue": ""
+             },
+              null,
+              2
+            )}
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
+      </div>
+      <pre id='CopyPayloadGlobal' style={{display: 'none'}}>
+{JSON.stringify(
+       {
+        "$type": "System.Collections.Generic.List`1[[LugaRh.Domain.Models.Shares.Export.ShareExportMappingField, LugaRh.Domain.Models]], System.Private.CoreLib",
+        "$values": [
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Name",
+            "DstName": "empresa_nome",
+            "Source": "company",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Nome da empresa"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "CNPJ",
+            "DstName": "empresa_cnpj",
+            "Source": "company",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "CNPJ da empresa"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.ConcatExportMappingField, LugaRh.Domain.Models",
+            "Delimiter": "",
+            "SrcName": "",
+            "DstName": "workspace_endereco_completo",
+            "Source": "workspace",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": [
+                "Data.Address.streetType",
+                " ",
+                "Data.Address.streetName",
+                ", ",
+                "Data.Address.number",
+                " - ",
+                "Data.Address.complement",
+                " - ",
+                "Data.Address.neighborhood",
+                " - ",
+                "Data.Address.city",
+                " - CEP ",
+                "Data.Address.zipCode"
+              ]
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "Substitution": 0,
+            "DefaultValue": "_____________________________________________________________________________________",
+            "Label": "Endereço completo do workspace"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.RegexReplaceMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.Address.city",
+            "DstName": "workspace_estado",
+            "Source": "workspace",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "RegexValue": ".*\\/",
+            "Replace": "",
+            "Label": "UF do workspace"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.RegexReplaceMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.Address.city",
+            "DstName": "workspace_cidade",
+            "Source": "workspace",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "RegexValue": "\\/.*",
+            "Replace": "",
+            "Label": "Cidade do workspace"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.Address.city",
+            "DstName": "workspace_cidade_uf",
+            "Source": "workspace",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Cidade/UF do workspace"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.RegexReplaceMappingField, LugaRh.Domain.Models",
+            "RegexValue": "\\.",
+            "Replace": "",
+            "SrcName": "Data.Address.zipCode",
+            "DstName": "workspace_cep",
+            "Source": "workspace",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "CEP do workspace"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.Address.number",
+            "DstName": "workspace_numero",
+            "Source": "workspace",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Número do endereço do workspace"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.Address.neighborhood",
+            "DstName": "workspace_bairro",
+            "Source": "workspace",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Bairro do endereço do workspace"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.Address.streetName",
+            "DstName": "workspace_logradouro",
+            "Source": "workspace",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Logradouro do endereço do workspace"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.Address.streetType",
+            "DstName": "workspace_tipo_rua",
+            "Source": "workspace",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Tipo de logradouro do endereço do workspace (Descontinuar)"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.Address.streetType",
+            "DstName": "workspace_tipo",
+            "Source": "workspace",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Tipo de logradouro do endereço do workspace"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.Address.complement",
+            "DstName": "workspace_complemento",
+            "Source": "workspace",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Complemento do endereço do workspace"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.Address.streetName",
+            "DstName": "workspace_rua",
+            "Source": "workspace",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Rua do endereço do workspace (Descontinuar)"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.CpfCnpjFormatStringMappingField, LugaRh.Domain.Models",
+            "SrcName": "CNPJ",
+            "DstName": "workspace_cnpj",
+            "Source": "workspace",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "CNPJ do workspace"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.name",
+            "DstName": "share_nome",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Nome do colaborador"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.maritalStatus",
+            "DstName": "share_estado_civil",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Estado civíl do colaborador"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.8dfc2491-dab0-4d36-8f1a-bf96d4002e91.Fields.city",
+            "DstName": "share_cidade",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_________________________________",
+            "Label": "Cidade"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.RegexReplaceMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.8dfc2491-dab0-4d36-8f1a-bf96d4002e91.Fields.city",
+            "DstName": "share_cidade_sem_uf",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "RegexValue": "\\/.*",
+            "Replace": "",
+            "Label": "Cidade sem UF"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.gender",
+            "DstName": "share_sexo",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_________________________________",
+            "Label": "Sexo"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.GenderCheckMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.gender",
+            "DstName": "share_sexo_m",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Gender": "M",
+            "Label": "Sexo Masculino"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.GenderCheckMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.gender",
+            "DstName": "share_sexo_f",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Gender": "F",
+            "Label": "Sexo Feminino"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.ApplyMaskExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.a835c0bf-839b-48cc-a9be-322381570f0d.Fields.pispasep",
+            "DstName": "share_pispasep",
+            "Source": "share",
+            "FormatType": 0,
+            "Culture": "pt-BR",
+            "Mask": "000\\.00000\\.00-0",
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "PIS PASEP"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.MultiMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents",
+            "DstName": "share_CTPS_numero",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": [
+                "7b526f64-413e-4dca-8120-22ab98b33ab8.Fields.numero",
+                "31f7fd3c-bb5c-4f2d-92de-d24f6bd38f0a.Fields.numero",
+                "1529a034-7d14-4feb-98cb-b31a76b26ab0.Fields.numero"
+              ]
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Número CTPS"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.MultiMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents",
+            "DstName": "share_CTPS_serie",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": [
+                "7b526f64-413e-4dca-8120-22ab98b33ab8.Fields.serie",
+                "31f7fd3c-bb5c-4f2d-92de-d24f6bd38f0a.Fields.serie",
+                "1529a034-7d14-4feb-98cb-b31a76b26ab0.Fields.serie"
+              ]
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Série CTPS"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.MultiMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents",
+            "DstName": "share_CTPS_data",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": [
+                "7b526f64-413e-4dca-8120-22ab98b33ab8.Fields.Emissao",
+                "31f7fd3c-bb5c-4f2d-92de-d24f6bd38f0a.Fields.Emissao",
+                "1529a034-7d14-4feb-98cb-b31a76b26ab0.Fields.Emissao"
+              ]
+            },
+            "SrcDateFormat": "yyyy-MM-ddThh:mm:ss",
+            "DstDateFormat": "dd/MM/yyyy",
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Data CTPS"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.MultiMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents",
+            "DstName": "share_CTPS_uf",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": [
+                "7b526f64-413e-4dca-8120-22ab98b33ab8.Fields.uf",
+                "31f7fd3c-bb5c-4f2d-92de-d24f6bd38f0a.Fields.uf",
+                "1529a034-7d14-4feb-98cb-b31a76b26ab0.Fields.uf"
+              ]
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "UF CTPS"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.7b526f64-413e-4dca-8120-22ab98b33ab8.Fields.numero",
+            "DstName": "share_CTPSnormal_numero",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Número CTPS normal (Descontinuar)"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.7b526f64-413e-4dca-8120-22ab98b33ab8.Fields.serie",
+            "DstName": "share_CTPSnormal_serie",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Série CTPS normal (Descontinuar)"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.7b526f64-413e-4dca-8120-22ab98b33ab8.Fields.uf",
+            "DstName": "share_CTPSnormal_uf",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "UF CTPS normal (Descontinuar)"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.BrazilianDateExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.7b526f64-413e-4dca-8120-22ab98b33ab8.Fields.Emissao",
+            "DstName": "share_CTPSnormal_data",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Data CTPS normal (Descontinuar)"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.016f208f-803a-44a0-b5e3-6fd19802d794.Fields.numero",
+            "DstName": "share_cnh_numero",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Número CNH"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.016f208f-803a-44a0-b5e3-6fd19802d794.Fields.categoria",
+            "DstName": "share_cnh_categoria",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Categoria CNH"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.BrazilianDateExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.016f208f-803a-44a0-b5e3-6fd19802d794.Fields.dataEmissao",
+            "DstName": "share_cnh_data",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Data CNH"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.ba86b58b-1899-4289-b191-b638586eddf9.Fields.NumeroInscricao",
+            "DstName": "share_titulo_numero",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Número título"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.ba86b58b-1899-4289-b191-b638586eddf9.Fields.Zona",
+            "DstName": "share_titulo_zona",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Zona do título"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.ba86b58b-1899-4289-b191-b638586eddf9.Fields.Secao",
+            "DstName": "share_titulo_secao",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Seção do título"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.BrazilianDateExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.ba86b58b-1899-4289-b191-b638586eddf9.Fields.Emissao",
+            "DstName": "share_titulo_data",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Data do título"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.4bd90885-4bd6-4eea-a862-9334089babfa.Fields.cns",
+            "DstName": "share_cns",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "CNS"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.BrazilianDateExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.birthdate",
+            "DstName": "share_data_nasc",
+            "Source": "share",
+            "FormatType": 3,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Data de nascimento do colaborador"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.BrazilianDateExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.foreignInfo.arrivalDate",
+            "DstName": "share_data_chegadaBR",
+            "Source": "share",
+            "FormatType": 3,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Data de chegada ao Brasil"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.education",
+            "DstName": "share_escolaridade",
+            "Source": "share",
+            "FormatType": 3,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Escolaridade do colaborador"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.AgeMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.birthdate",
+            "DstName": "share_idade",
+            "Source": "share",
+            "FormatType": 3,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Idade do colaborador"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.brazilianInfo.birthCity",
+            "DstName": "share_cidadeUF_nasc",
+            "Source": "share",
+            "FormatType": 3,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Cidade e UF de nascimento"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.RegexReplaceMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.brazilianInfo.birthCity",
+            "DstName": "share_UF_nasc",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "RegexValue": ".*\\/",
+            "Replace": "",
+            "Label": "UF de nascimento"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.RegexReplaceMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.brazilianInfo.birthCity",
+            "DstName": "share_cidade_nasc",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "RegexValue": "\\/.*",
+            "Replace": "",
+            "Label": "Cidade de nascimento"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.CpfCnpjFormatStringMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.edc17b99-d956-4300-8b0e-8aa60f9cdb94.Fields.numero",
+            "DstName": "share_cpf",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "CPF"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.WebFopagDocIdExtractorMappingField, LugaRh.Domain.Models",
+            "SrcName": "",
+            "DstName": "share_rg_numero",
+            "Source": "share",
+            "FormatType": 12,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "source": "numero",
+              "type": "rg",
+              "doc_id": "b93acc29-f93c-4968-903c-6fa961497969"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "RG"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.BrazilianDateExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.b93acc29-f93c-4968-903c-6fa961497969.Fields.expedicao",
+            "DstName": "share_rg_data",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Data RG"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.RegexReplaceMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.b93acc29-f93c-4968-903c-6fa961497969.Fields.orgaoEmissor",
+            "DstName": "share_rg_orgao_emissor",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "RegexValue": "\\ .*",
+            "Replace": "",
+            "Label": "Órgão emissor RG"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.b93acc29-f93c-4968-903c-6fa961497969.Fields.estadoEmissor",
+            "DstName": "share_rg_uf",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "UF RG"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Name",
+            "DstName": "occupation",
+            "Source": "occupation",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Ocupação (nome do perfil de contratação)"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.email",
+            "DstName": "share_email",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "E-mail"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.parents.fatherName",
+            "DstName": "share_nome_pai",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Nome do pai"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.parents.motherName",
+            "DstName": "share_nome_mae",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Nome da mãe"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.telephone",
+            "DstName": "share_tel_fixo",
+            "Source": "share",
+            "FormatType": 1,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Telefone fixo"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.RegexReplaceMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.telephone",
+            "DstName": "share_tel_ddd",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "RegexValue": "\\ .*",
+            "Replace": "",
+            "Label": "Telefone ddd"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.RegexReplaceMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.telephone",
+            "DstName": "share_tel_numero",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "RegexValue": ".*\\)",
+            "Replace": "",
+            "Label": "Número de telefone"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.cellphone",
+            "DstName": "share_celular",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Número de celular"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.RegexReplaceMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.cellphone",
+            "DstName": "share_cel_ddd",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "RegexValue": "\\ .*",
+            "Replace": "",
+            "Label": "Número de celular ddd"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.RegexReplaceMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.cellphone",
+            "DstName": "share_cel_numero",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "RegexValue": ".*\\)",
+            "Replace": "",
+            "Label": "Número de telefone"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.8dfc2491-dab0-4d36-8f1a-bf96d4002e91.Fields.zipCode",
+            "DstName": "share_cep",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "CEP"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.ad206578-01cf-402c-8c9f-eaa32da8a5b9.Fields.nome",
+            "DstName": "share_plano_saude_nome",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Plano de saúde"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.birthCountry",
+            "DstName": "share_pais_nasc",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "País de nascimento"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.foreignInfo.birthCountry",
+            "DstName": "foreign_pais_nasc",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "País de nascimento estrangeiro"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.BooleanToStringMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.foreign",
+            "DstName": "share_foreign",
+            "AffirmativeValue": "Estrangeiro",
+            "NegativeValue": "Brasileiro",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Estrangeiro"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Name",
+            "DstName": "workspace_nome",
+            "Source": "workspace",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Nome do workspace"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.ConcatExportMappingField, LugaRh.Domain.Models",
+            "Delimiter": "",
+            "SrcName": "",
+            "DstName": "share_endereco_completo",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": [
+                "Documents.8dfc2491-dab0-4d36-8f1a-bf96d4002e91.Fields.streetType",
+                " ",
+                "Documents.8dfc2491-dab0-4d36-8f1a-bf96d4002e91.Fields.streetName",
+                ", ",
+                "Documents.8dfc2491-dab0-4d36-8f1a-bf96d4002e91.Fields.number",
+                " - ",
+                "Documents.8dfc2491-dab0-4d36-8f1a-bf96d4002e91.Fields.complement",
+                " - ",
+                "Documents.8dfc2491-dab0-4d36-8f1a-bf96d4002e91.Fields.neighborhood",
+                " - ",
+                "Documents.8dfc2491-dab0-4d36-8f1a-bf96d4002e91.Fields.city",
+                " - CEP ",
+                "Documents.8dfc2491-dab0-4d36-8f1a-bf96d4002e91.Fields.zipCode"
+              ]
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "Substitution": 0,
+            "DefaultValue": "_____________________________________________________________________________________",
+            "Label": "Endereço completo do share"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.8dfc2491-dab0-4d36-8f1a-bf96d4002e91.Fields.streetType",
+            "DstName": "share_endereco_tipo",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Tipo de logradouro"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.8dfc2491-dab0-4d36-8f1a-bf96d4002e91.Fields.streetName",
+            "DstName": "share_endereco_logradouro",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "logradouro do endereço"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.8dfc2491-dab0-4d36-8f1a-bf96d4002e91.Fields.streetName",
+            "DstName": "share_endereco_rua",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Logradouro do endereço  (Descontinuar)"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.RegexReplaceMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.8dfc2491-dab0-4d36-8f1a-bf96d4002e91.Fields.city",
+            "DstName": "share_endereco_estado",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "RegexValue": ".*\\/",
+            "Replace": "",
+            "Label": "UF do endereço"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.RegexReplaceMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.8dfc2491-dab0-4d36-8f1a-bf96d4002e91.Fields.city",
+            "DstName": "share_endereco_cidade",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "RegexValue": "\\/.*",
+            "Replace": "",
+            "Label": "Cidade do endereço"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.8dfc2491-dab0-4d36-8f1a-bf96d4002e91.Fields.neighborhood",
+            "DstName": "share_endereco_bairro",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Bairro do endereço"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.8dfc2491-dab0-4d36-8f1a-bf96d4002e91.Fields.number",
+            "DstName": "share_endereco_numero",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Número do endereço"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.RegexReplaceMappingField, LugaRh.Domain.Models",
+            "RegexValue": "\\.",
+            "Replace": "",
+            "SrcName": "Documents.8dfc2491-dab0-4d36-8f1a-bf96d4002e91.Fields.zipCode",
+            "DstName": "share_endereco_cep",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "CEP do endereço"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.8dfc2491-dab0-4d36-8f1a-bf96d4002e91.Fields.complement",
+            "DstName": "share_endereco_complemento",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Complemento do endereço"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.8a3fbed5-1102-4fe1-9f91-ef862c6bf362.Fields.ra",
+            "DstName": "share_reservista",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Reservista"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.ActualDateTimeExportMappingField, LugaRh.Domain.Models",
+            "DateFormat": "NoWeekDay",
+            "SrcName": "",
+            "DstName": "data_extenso",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Data por extenso"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.ActualDateTimeExportMappingField, LugaRh.Domain.Models",
+            "DateFormat": "FullDate",
+            "SrcName": "",
+            "DstName": "data_completo",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Data completa"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.ActualDateTimeExportMappingField, LugaRh.Domain.Models",
+            "DateFormat": "OnlyDate",
+            "SrcName": "",
+            "DstName": "data_atual",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Data atual"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.ActualDateTimeExportMappingField, LugaRh.Domain.Models",
+            "DateFormat": "NoWeekDay",
+            "SrcName": "",
+            "DstName": "data_atual_extenso",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Data atual por extenso"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.ActualDateTimeExportMappingField, LugaRh.Domain.Models",
+            "DateFormat": "OnlyTime",
+            "SrcName": "",
+            "DstName": "data_horas",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Horas da data"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DictionaryMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.foreignInfo.brazilianSons",
+            "DstName": "share_filhosBR_select",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "true": " X ",
+              "false": "   "
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Filhos Brasileiros Seleção (x)"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DictionaryMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.foreignInfo.marriedWithBrazilian",
+            "DstName": "share_casadoBR_select",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "true": " X ",
+              "false": "   "
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "casado com Brasileiro(a) Seleção (x)"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.SelectMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.maritalStatus",
+            "DstName": "share_estado_civil",
+            "OptionsNames": [
+              {
+                "casado": "X"
+              },
+              {
+                "solteiro": "X"
+              },
+              {
+                "uniao": "X"
+              },
+              {
+                "separado": "X"
+              },
+              {
+                "divorciado": "X"
+              },
+              {
+                "viuvo": "X"
+              },
+              {
+                "amasiado": "X"
+              },
+              {
+                "outros": "X"
+              }
+            ],
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Select de estado civíl"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DictionaryMappingField, LugaRh.Domain.Models",
+            "SrcName": "Data.foreign",
+            "DstName": "share_nacionalidade",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "false": "Brasileira",
+              "true": "Estrangeira"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Nacionalidade do Colaborador"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.afefc626-1308-44b0-9871-7fbdd8aa9d5e.Fields.Banco",
+            "DstName": "share_Banco_nome",
+            "Source": "share",
+            "FormatType": 0,
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Nome do Banco do colaborador"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.afefc626-1308-44b0-9871-7fbdd8aa9d5e.Fields.Banco",
+            "DstName": "share_Banco_cod",
+            "Source": "share",
+            "FormatType": 0,
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Codigo do Banco do colaborador"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.afefc626-1308-44b0-9871-7fbdd8aa9d5e.Fields.nAgencia",
+            "DstName": "share_Banco_agencia",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Agencia do Colaborador"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.afefc626-1308-44b0-9871-7fbdd8aa9d5e.Fields.nConta",
+            "DstName": "share_Banco_conta",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Conta do Colaborador"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Documents.afefc626-1308-44b0-9871-7fbdd8aa9d5e.Fields.digitoVerificador",
+            "DstName": "share_Banco_dig",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "digito da conta do Colaborador"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.MultiMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData",
+            "DstName": "share_data_admissao",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": [
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.dataadmissao",
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.dataAdmissao",
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.dataadimissao",
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.datadeadmissao"
+              ]
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "__/__/____",
+            "Label": "Dados de contratação - Data admissão"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.MultiMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData",
+            "DstName": "share_data_demissao",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": [
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.datademissao",
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.dataDemissao",
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.datadedemissao"
+              ]
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "__/__/____",
+            "Label": "Dados de contratação - Data demissão"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.MultiMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData",
+            "DstName": "share_data_admissao_ext",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": [
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.dataadmissao",
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.dataAdmissao",
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.dataadimissao",
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.datadeadmissao"
+              ]
+            },
+            "SrcDateFormat": "dd/MM/yyyy",
+            "DstDateFormat": "fulldate",
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "__/__/____",
+            "Label": "Dados de contratação - Data admissão por extenso"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.funcao",
+            "DstName": "share_schema_ocupacao",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - Função"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.localTrabalho",
+            "DstName": "share_schema_local",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - local de trabalho"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.MultiMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData",
+            "DstName": "share_schema_cargo",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": [
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.cargo",
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.Cargo.name"
+              ]
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - Cargo"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.tpPonto",
+            "DstName": "share_schema_tipoPonto",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - tipo ponto"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.salarioExtenso",
+            "DstName": "share_schema_salario_extenso",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - salário por extenso"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.tpsalario",
+            "DstName": "share_schema_tipo_salario",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - Tipo de salário"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.ApplyMaskExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.salario",
+            "DstName": "share_schema_salario",
+            "Source": "share",
+            "FormatType": 0,
+            "Culture": "pt-BR",
+            "Mask": "0,0.00",
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - salário"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.ApplyMaskExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Salario",
+            "DstName": "share_schema_Salario",
+            "Source": "share",
+            "FormatType": 0,
+            "Culture": "pt-BR",
+            "Mask": "0,0.00",
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - Salário"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.MultiMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData",
+            "DstName": "share_matricula",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": [
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.matricula",
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.matricularegistro"
+              ]
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "__________",
+            "Label": "Dados de contratação - matrícula"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.matricularegistro",
+            "DstName": "share_matricula_reg",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_________________________________",
+            "Label": "Dados de contratação - matrícula  (Descontinuar)"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.vinculo",
+            "DstName": "share_vinculo",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - Vínculo"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.unidade",
+            "DstName": "share_unidade",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - Unidade"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.areaSubAreaRH",
+            "DstName": "share_areaSubAreaRH",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - área e subárea RH"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.horassemana",
+            "DstName": "share_schema_horassemana",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - horas da semana"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.horasmes",
+            "DstName": "share_schema_horasmes",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - horas da mês"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.MultiMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData",
+            "DstName": "share_schema_diaexperiencia",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": [
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.diaexperiencia",
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.diasExperiencia",
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.diascontrato"
+              ]
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - Dias de Experiência"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.MultiMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData",
+            "DstName": "share_schema_diaprorrogacao",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": [
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.diasprorrog",
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.diasProrrogacao"
+              ]
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - Dias de Prorrogação"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.diaexperienciatotal",
+            "DstName": "share_schema_diaexperienciatotal",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - Total dias de Experiência"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.MultiMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData",
+            "DstName": "share_schema_dtiniprorrogacao",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": [
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.dtiniprorrogacao",
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.datavenccontrato"
+              ]
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - Data de inicio de prorrogação de Experiência"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.MultiMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData",
+            "DstName": "share_schema_dtfimprorrogacao",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": [
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.dtfimprorrogacao",
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.datavencprorrog",
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.dataTerminoProrrogacao"
+              ]
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - Data de fim de prorrogação de Experiência"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.MultiMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData",
+            "DstName": "share_schema_horario",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": [
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.codhorario",
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.deshorario",
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.name"
+              ]
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "__________",
+            "Label": "Dados de contratação - horário"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.MultiMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData",
+            "DstName": "share_schema_secao",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": [
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.secao",
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.centrocusto",
+                "01c6cdb6-e059-4c8f-8396-3e5fab18d259.Centrocusto.name"
+              ]
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - Seção/centro de custo"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Cliente.value",
+            "DstName": "share_schema_codcliente",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "__________",
+            "Label": "Dados de contratação - Código do Cliente"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Cliente.name",
+            "DstName": "share_schema_cliente",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "__________",
+            "Label": "Dados de contratação - Nome do Cliente"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.RegexReplaceMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.des_odonto",
+            "DstName": "share_schema_desconto_Odonto",
+            "RegexValue": "\\.",
+            "Replace": ",",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - Desconto Odonto"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.RegexReplaceMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.ben_va",
+            "DstName": "share_schema_beneficio_va",
+            "RegexValue": "\\.",
+            "Replace": ",",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - Benefício Vale Alimentação"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HSegEntrada",
+            "DstName": "share_schema_horario_segE",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - entrada segunda"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HSegIntervIni",
+            "DstName": "share_schema_horario_segintE",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - intervalo entrada segunda"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HSegIntervFin",
+            "DstName": "share_schema_horario_segintS",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - intervalo saida segunda"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HSegSaida",
+            "DstName": "share_schema_horario_segS",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - saida segunda"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HTerEntrada",
+            "DstName": "share_schema_horario_terE",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - entrada terça"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HTerIntervIni",
+            "DstName": "share_schema_horario_terintE",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - intervalo entrada terça"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HTerIntervFin",
+            "DstName": "share_schema_horario_terintS",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - intervalo saida terça"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HTerSaida",
+            "DstName": "share_schema_horario_terS",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - saida terça"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HQuaEntrada",
+            "DstName": "share_schema_horario_quaE",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - entrada quarta"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HQuaIntervIni",
+            "DstName": "share_schema_horario_quaintE",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - intervalo entrada quarta"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HQuaIntervFin",
+            "DstName": "share_schema_horario_quaintS",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - intervalo saida quarta"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HQuaSaida",
+            "DstName": "share_schema_horario_quaS",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - saida quarta"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HQuiEntrada",
+            "DstName": "share_schema_horario_quiE",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - entrada quinta"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HQuiIntervIni",
+            "DstName": "share_schema_horario_quiintE",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - intervalo entrada quinta"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HQuiIntervFin",
+            "DstName": "share_schema_horario_quiintS",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - intervalo saida quinta"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HQuiSaida",
+            "DstName": "share_schema_horario_quiS",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - saida quinta"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HSexEntrada",
+            "DstName": "share_schema_horario_sexE",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - entrada sexta"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HSexIntervIni",
+            "DstName": "share_schema_horario_sexintE",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - intervalo entrada sexta"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HSexIntervFin",
+            "DstName": "share_schema_horario_sexintS",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - intervalo saida sexta"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HSexSaida",
+            "DstName": "share_schema_horario_sexS",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - saida sexta"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HSabEntrada",
+            "DstName": "share_schema_horario_sabE",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação -"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HSabIntervIni",
+            "DstName": "share_schema_horario_sabintE",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - intervalo entrada sabado"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HSabIntervFin",
+            "DstName": "share_schema_horario_sabintS",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - intervalo saida sabado"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HSabSaida",
+            "DstName": "share_schema_horario_sabS",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - saida sabado"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HDomEntrada",
+            "DstName": "share_schema_horario_domE",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - entrada domingo"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HDomIntervIni",
+            "DstName": "share_schema_horario_domintE",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - intervalo entrada domingo"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HDomIntervFin",
+            "DstName": "share_schema_horario_domintS",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - intervalo saida domingo"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.Horario.value.HDomSaida",
+            "DstName": "share_schema_horario_domS",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "_____",
+            "Label": "Dados de contratação - saida domingo"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.pInsalub",
+            "DstName": "share_schema_pInsalub",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - Percentual Insalubridade"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.pPeric",
+            "DstName": "share_schema_pPeric",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - Percentual Periculosidade"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "SchemaData.01c6cdb6-e059-4c8f-8396-3e5fab18d259.flexcard",
+            "DstName": "share_schema_flexcard",
+            "Source": "share",
+            "FormatType": 0,
+            "ValuesFrom": {
+              "$type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Size": 0,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Dados de contratação - Cartão Flex"
+          },
+          {
+            "$type": "LugaRh.Domain.Models.Shares.Export.Fields.DefaultExportMappingField, LugaRh.Domain.Models",
+            "SrcName": "Acronym",
+            "DstName": "form_acronimo",
+            "Source": "formconfiguration",
+            "FormatType": 0,
+            "ValuesFromTo": {
+              "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib"
+            },
+            "Size": 0,
+            "CharSize": null,
+            "Position": 0,
+            "AppConfiguration": null,
+            "DefaultValue": "",
+            "Label": "Nome do formulário de benefício"
+          }
+        ]
+      },
+       null,
+       2
+     )}
+  </pre>
     </>
   );
 }
